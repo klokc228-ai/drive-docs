@@ -11,9 +11,7 @@
   <meta name="keywords" content="{% block meta_keywords %}DRIVE DOCS, водительское удостоверение, восстановление прав, оформление прав, консультация по правам{% endblock %}">
   <meta name="robots" content="{% block meta_robots %}index, follow{% endblock %}">
 
-  {# Блок для дополнительных SEO-тегов (og, schema.org и т.п.) #}
   {% block extra_meta %}{% endblock %}
-
   {% block extra_head %}{% endblock %}
 
   <style>
@@ -27,7 +25,6 @@
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, system-ui, sans-serif;
       line-height: 1.6;
       color: #f5f5f5;
-      /* Чёрно-серый градиент + лёгкий подсвет белым сверху */
       background:
         radial-gradient(circle at 0 0, rgba(255,107,107,0.18), transparent 55%),
         linear-gradient(135deg, #101014 0%, #18181d 25%, #202027 55%, #101014 80%, #f3f3f3 100%);
@@ -47,20 +44,18 @@
       flex-direction: column;
     }
 
-    /* HEADER / NAVBAR */
+    /* ===== HEADER / NAVBAR (статичный) ===== */
 
-header {
-  /* было: position: sticky; top: 0; */
-  position: relative;   /* или вообще можно убрать position — по умолчанию будет static */
-  z-index: 50;
-  backdrop-filter: blur(16px);
-  background:
-    radial-gradient(circle at 0 0, rgba(255,107,107,0.28), transparent 60%),
-    linear-gradient(90deg, rgba(7,7,9,0.97), rgba(22,22,26,0.97));
-  border-bottom: 1px solid rgba(255,255,255,0.06);
-  box-shadow: 0 14px 40px rgba(0,0,0,0.9);
-}
-
+    header {
+      /* НЕТ position: sticky/fixed — обычная статичная шапка */
+      z-index: 50;
+      backdrop-filter: blur(16px);
+      background:
+        radial-gradient(circle at 0 0, rgba(255,107,107,0.28), transparent 60%),
+        linear-gradient(90deg, rgba(7,7,9,0.97), rgba(22,22,26,0.97));
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      box-shadow: 0 14px 40px rgba(0,0,0,0.9);
+    }
 
     .nav-container {
       max-width: 1150px;
@@ -174,7 +169,6 @@ header {
       margin-bottom: 4px;
     }
 
-    /* строка с телеграмом (по умолчанию скрыта, покажем только на мобайл) */
     .nav-contact {
       display: none;
       font-size: 11px;
@@ -189,7 +183,7 @@ header {
       text-underline-offset: 2px;
     }
 
-    /* MAIN CONTENT */
+    /* ===== MAIN CONTENT ===== */
 
     main {
       flex: 1;
@@ -201,7 +195,7 @@ header {
       padding: 28px 18px 40px;
     }
 
-    /* FOOTER */
+    /* ===== FOOTER ===== */
 
     footer {
       border-top: 1px solid rgba(255,255,255,0.08);
@@ -236,7 +230,7 @@ header {
       text-underline-offset: 3px;
     }
 
-    /* SECTIONS BASIC STYLES */
+    /* ===== BASIC SECTIONS ===== */
 
     h1 {
       font-size: 28px;
@@ -312,7 +306,7 @@ header {
       filter: brightness(1.03);
     }
 
-    /* ======== МОБИЛЬНАЯ АДАПТАЦИЯ ======== */
+    /* ===== MOBILE ===== */
     @media (max-width: 768px) {
 
       .content-container {
@@ -346,7 +340,6 @@ header {
         font-size: 9px;
       }
 
-      /* делаем шапку столбиком и по центру */
       .nav-container {
         padding-inline: 14px;
         flex-direction: column;
@@ -355,12 +348,10 @@ header {
         gap: 12px;
       }
 
-      /* прячем бургер — он нам теперь не нужен */
       .mobile-menu-btn {
         display: none;
       }
 
-      /* nav больше не absolute-меню, а просто центр */
       nav {
         position: static;
         width: 100%;
@@ -370,7 +361,6 @@ header {
         padding: 0;
       }
 
-      /* сама "таблетка" меню */
       .nav-links {
         flex-wrap: wrap;
         justify-content: center;
@@ -395,18 +385,15 @@ header {
         color: #f5f5f5;
       }
 
-      /* можно выделить активный пункт, если захочешь добавить класс .nav-link--active */
       .nav-link--active {
         border-color: #00c4ff;
         box-shadow: 0 0 10px rgba(0,196,255,0.6);
       }
 
-      /* строка с tg как под меню */
       .nav-contact {
         display: block;
       }
 
-      /* hero / index */
       .hero {
         grid-template-columns: 1fr !important;
         gap: 20px;
@@ -437,13 +424,11 @@ header {
         grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
       }
 
-      /* Актуальные заказы */
       .status-grid {
         grid-template-columns: 1fr !important;
         gap: 12px;
       }
 
-      /* Отзывы */
       .reviews-grid {
         grid-template-columns: 1fr !important;
         gap: 14px;
@@ -464,7 +449,6 @@ header {
         font-size: 11px;
       }
 
-      /* О нас */
       .about-main {
         grid-template-columns: 1fr !important;
       }
@@ -478,7 +462,6 @@ header {
         padding: 14px;
       }
 
-      /* Формы */
       form input,
       form textarea,
       form select {
