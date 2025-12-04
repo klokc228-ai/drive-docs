@@ -1,0 +1,37 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Форма для отзыва — DRIVE DOCS{% endblock %}
+{% block meta_description %}Заполните форму отзыва: менеджер, ваше ФИО и номер заказа. DRIVE DOCS — честные отзывы от реальных клиентов.{% endblock %}
+{% block meta_keywords %}форма отзывов, номер заказа, отзыв DRIVE DOCS, менеджер{% endblock %}
+
+{% block content %}
+  <section class="card">
+    <div class="tag">Форма отзыва</div>
+
+    <h1>Заполнение отзыва</h1>
+
+    <p style="margin-bottom: 18px; font-size: 14px; opacity: 0.9;">
+      Пожалуйста, укажите данные, чтобы мы могли подтвердить, что отзыв реальный.
+    </p>
+
+    <form method="POST" style="display: flex; flex-direction: column; gap: 14px;">
+      {% csrf_token %}
+
+      <label style="font-size: 14px;">Имя менеджера</label>
+      <input type="text" name="manager_name" required
+             style="padding: 10px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.3); background: rgba(0,0,0,0.5); color: #fff;">
+
+      <label style="font-size: 14px;">Ваше ФИО</label>
+      <input type="text" name="client_fullname" required
+             style="padding: 10px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.3); background: rgba(0,0,0,0.5); color: #fff;">
+
+      <label style="font-size: 14px;">Номер вашего заказа</label>
+      <input type="text" name="order_number" required
+             style="padding: 10px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.3); background: rgba(0,0,0,0.5); color: #fff;">
+
+      <button type="submit" class="btn" style="margin-top: 10px;">
+        Отправить отзыв
+      </button>
+    </form>
+  </section>
+{% endblock %}

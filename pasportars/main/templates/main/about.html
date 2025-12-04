@@ -1,0 +1,163 @@
+{% extends 'main/base.html' %}
+
+{% block title %}О компании DRIVE DOCS — надежный сервис оформления прав{% endblock %}
+{% block meta_description %}О компании DRIVE DOCS: современная сервисная платформа по оформлению, оплате и выдаче водительских удостоверений. Надежность, прозрачность и безопасность при получении прав.{% endblock %}
+{% block meta_keywords %}о компании DRIVE DOCS, сервис оформления прав, надежный сервис, получение водительских прав{% endblock %}
+
+{% block extra_head %}
+<style>
+  .about-title {
+    font-size: 30px;
+    margin-bottom: 12px;
+  }
+
+  .about-subtitle {
+    font-size: 14px;
+    opacity: 0.88;
+    max-width: 850px;
+  }
+
+  .about-highlight {
+    color: #ff6b6b; /* лёгкий красный акцент */
+    font-weight: 700;
+  }
+
+  /* Статы */
+  .about-stats {
+    margin-top: 26px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 14px;
+  }
+
+  .about-stat-card {
+    border-radius: 18px;
+    padding: 16px 20px;
+    border: 1px solid rgba(255,255,255,0.18);
+    background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(0,0,0,0.9));
+    box-shadow: 0 18px 40px rgba(0,0,0,0.7);
+    text-align: center;
+    font-size: 13px;
+  }
+
+  .about-stat-card strong {
+    display: block;
+    font-size: 20px;
+    margin-bottom: 6px;
+    color: #ff6b6b;
+  }
+
+  /* Основной блок текста */
+  .about-main {
+    margin-top: 26px;
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(0, 1.4fr);
+    gap: 18px;
+  }
+
+  .about-card {
+    border-radius: 18px;
+    padding: 18px 20px 18px;
+    border: 1px solid rgba(255,255,255,0.18);
+    background: linear-gradient(135deg, rgba(255,255,255,0.04), rgba(0,0,0,0.9));
+    box-shadow: 0 18px 40px rgba(0,0,0,0.75);
+    font-size: 13px;
+  }
+
+  .about-card p {
+    margin-bottom: 10px;
+  }
+
+  .about-card-title {
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #ff6b6b;
+  }
+
+  .about-list {
+    margin: 0;
+    padding-left: 18px;
+  }
+
+  .about-list li {
+    margin-bottom: 6px;
+  }
+
+  .about-footer {
+    margin-top: 26px;
+    font-size: 12px;
+    text-align: center;
+    opacity: 0.75;
+    border-radius: 18px;
+    padding: 10px 16px;
+    border: 1px solid rgba(255,255,255,0.16);
+    background: radial-gradient(circle at 0 0, rgba(255,255,255,0.06), rgba(0,0,0,0.92));
+  }
+
+  @media (max-width: 900px) {
+    .about-main {
+      grid-template-columns: 1fr;
+    }
+    .about-title {
+      font-size: 24px;
+    }
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+  <section>
+    <div class="tag">О компании</div>
+    <h1 class="about-title">О компании DRIVE DOCS</h1>
+
+    <p class="about-subtitle">
+      DRIVE DOCS — современная сервисная платформа, специализирующаяся на оформлении, оплате и выдаче водительских удостоверений категорий B и A1. Мы работаем прозрачно и предоставляем быстрый доступ к готовым документам.
+    </p>
+  </section>
+
+  <section class="about-stats">
+    <div class="about-stat-card">
+      <strong>1000+</strong>
+      выданных водительских удостоверений
+    </div>
+    <div class="about-stat-card">
+      <strong>5+</strong>
+      лет надежной работы в сфере документооборота
+    </div>
+    <div class="about-stat-card">
+      <strong>92%</strong>
+      клиентов рекомендуют нас своим знакомым
+    </div>
+  </section>
+
+  <section class="about-main">
+    <div class="about-card">
+      <p>
+        DRIVE DOCS обеспечивает быстрый и безопасный процесс получения водительских прав. Мы сотрудничаем с официальными государственными службами, что позволяет нам гарантировать корректность данных, оперативность обработки заявок и надёжность при выдаче документа.
+      </p>
+
+      <p>
+        Мы активно внедряем цифровые технологии для упрощения взаимодействия граждан с системой выдачи водительских удостоверений. Благодаря современным механизмам проверки данных и внутреннему контролю качества, процесс оформления занимает минимальное количество времени.
+      </p>
+
+      <p>
+        Мы уверены, что комфорт, прозрачность и точность — основа хорошего сервиса.
+      </p>
+    </div>
+
+    <div class="about-card">
+      <div class="about-card-title">Почему нам доверяют:</div>
+      <ul class="about-list">
+        <li>Работаем только через официальные каналы.</li>
+        <li>Гарантируем безопасность персональных данных.</li>
+        <li>Предоставляем прозрачный мониторинг статуса документа.</li>
+        <li>Предлагаем быстрые сроки оформления и поддержки.</li>
+        <li>Тысячи клиентов уже получили свои водительские удостоверения через DRIVE DOCS.</li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="about-footer">
+    DRIVE DOCS · Надёжный сервис оформления прав © 2025
+  </div>
+{% endblock %}

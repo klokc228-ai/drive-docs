@@ -1,0 +1,33 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Оставить отзыв — DRIVE DOCS{% endblock %}
+{% block meta_description %}Оставление отзывов доступно только клиентам, получившим водительское удостоверение через DRIVE DOCS. Подтвердите получение и заполните форму отзыва.{% endblock %}
+{% block meta_keywords %}оставить отзыв, DRIVE DOCS отзыв, подтверждение получения водительских прав, отзыв о сервисе{% endblock %}
+
+{% block content %}
+  <section class="card">
+    <div class="tag">Оставить отзыв</div>
+
+    <h1>Оставить отзыв о DRIVE DOCS</h1>
+
+    <p style="margin-top: 10px; font-size: 15px;">
+      Чтобы обеспечить честность и прозрачность, мы принимаем отзывы только от клиентов,
+      которые <strong>уже получили водительское удостоверение</strong> с нашей помощью.
+    </p>
+
+    <p style="margin-top: 12px; font-size: 14px; opacity: 0.9;">
+      После подтверждения вы перейдёте к краткой форме, где потребуется указать:
+    </p>
+
+    <ul style="margin-top: 8px; font-size: 14px; padding-left: 20px; opacity: 0.9;">
+      <li>Имя менеджера, который вас вел</li>
+      <li>Ваше ФИО</li>
+      <li>Номер заказа</li>
+    </ul>
+
+    <a href="{% url 'review_form' %}" class="btn" style="margin-top: 18px;">
+      Подтверждаю, что я получил водительское удостоверение
+    </a>
+
+  </section>
+{% endblock %}

@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: drive-docs
+    env: python
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn pasportars.wsgi:application"
+    autoDeploy: true
+    envVars:
+      - key: DJANGO_SECRET_KEY
+        generateValue: true
+      - key: DJANGO_ALLOWED_HOSTS
+        value: "drive-docs.onrender.com"
+      - key: DEBUG
+        value: "False"

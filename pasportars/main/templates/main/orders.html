@@ -1,0 +1,231 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Проверка статуса прав — актуальные заказы DRIVE DOCS{% endblock %}
+{% block meta_description %}Проверка статуса заявок на оформление, замену и восстановление водительского удостоверения. Актуальные заказы DRIVE DOCS и этап их обработки.{% endblock %}
+{% block meta_keywords %}проверка заявок, статус прав, оформление прав, актуальные заказы{% endblock %}
+
+{% block extra_head %}
+<style>
+
+  /* Заголовки */
+  .status-page-title {
+    font-size: 30px;
+    margin-bottom: 10px;
+  }
+  .status-page-subtitle {
+    font-size: 14px;
+    opacity: 0.85;
+    max-width: 700px;
+  }
+
+  /* Сетка карточек */
+  .status-grid {
+    margin-top: 26px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+  }
+
+  /* Карточка */
+  .status-card {
+    border-radius: 18px;
+    padding: 16px 18px 14px;
+
+    background: linear-gradient(
+        135deg,
+        rgba(255,255,255,0.06),
+        rgba(0,0,0,0.85)
+    );
+
+    border: 1px solid rgba(255,255,255,0.12);
+    box-shadow: 0 20px 45px rgba(0,0,0,0.65);
+
+    font-size: 13px;
+    color: #eaeaea;
+  }
+
+  /* Шапка карточки */
+  .status-card-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-size: 11px;
+    opacity: 0.75;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  .status-card-number {
+    font-weight: 600;
+    opacity: 0.95;
+  }
+
+  .status-card-body p {
+    margin: 2px 0;
+    font-size: 13px;
+  }
+
+  /* СТАТУСЫ В СТИЛЕ ЧЕРНО-СЕРО-БЕЛОЙ ГАММЫ */
+  .status-step {
+    margin-top: 6px;
+    font-weight: 600;
+  }
+
+  /* Этапы без цвета — только разные оттенки серого */
+  .status-step--check {
+    color: #d8d8d8;
+  }
+  .status-step--wait {
+    color: #bfbfbf;
+  }
+  .status-step--ready {
+    color: #e6e6e6;
+  }
+  .status-step--office {
+    color: #c9c9c9;
+  }
+
+</style>
+{% endblock %}
+
+{% block content %}
+  <section>
+    <div class="tag">Актуальные заказы</div>
+    <h1 class="status-page-title">Проверка статуса прав</h1>
+
+    <p class="status-page-subtitle">
+      Ниже представлен список последних заявлений на оформление и выдачу водительских прав.
+      Указаны номер заявки, категория и текущий этап обработки.
+    </p>
+  </section>
+
+  <section class="status-grid">
+
+    <!-- 1 -->
+    <div class="status-card">
+      <div class="status-card-header">
+        <span>Заявление</span>
+        <span class="status-card-number">№ 2025-00124</span>
+      </div>
+      <div class="status-card-body">
+        <p>Категория: <strong>В (авто)</strong></p>
+        <p class="status-step status-step--check">Этап: данные проходят проверку</p>
+      </div>
+    </div>
+
+    <!-- 2 -->
+    <div class="status-card">
+      <div class="status-card-header">
+        <span>Заявление</span>
+        <span class="status-card-number">№ 2025-00125</span>
+      </div>
+      <div class="status-card-body">
+        <p>Категория: <strong>A</strong></p>
+        <p class="status-step status-step--wait">Этап: ожидает оплаты госпошлины</p>
+      </div>
+    </div>
+
+    <!-- 3 -->
+    <div class="status-card">
+      <div class="status-card-header">
+        <span>Заявление</span>
+        <span class="status-card-number">№ 2025-00126</span>
+      </div>
+      <div class="status-card-body">
+        <p>Категория: <strong>В (авто)</strong></p>
+        <p class="status-step status-step--ready">Этап: документ изготовлен, готов к выдаче</p>
+      </div>
+    </div>
+
+    <!-- 4 -->
+    <div class="status-card">
+      <div class="status-card-header">
+        <span>Заявление</span>
+        <span class="status-card-number">№ 2025-00127</span>
+      </div>
+      <div class="status-card-body">
+        <p>Категория: <strong>A</strong></p>
+        <p class="status-step status-step--office">Этап: передано в отделение выдачи</p>
+      </div>
+    </div>
+
+    <!-- 5 -->
+    <div class="status-card">
+      <div class="status-card-header">
+        <span>Заявление</span>
+        <span class="status-card-number">№ 2025-00128</span>
+      </div>
+      <div class="status-card-body">
+        <p>Категория: <strong>В (авто)</strong></p>
+        <p class="status-step status-step--check">Этап: проверяется медсправка</p>
+      </div>
+    </div>
+
+    <!-- 6 -->
+    <div class="status-card">
+      <div class="status-card-header">
+        <span>Заявление</span>
+        <span class="status-card-number">№ 2025-00129</span>
+      </div>
+      <div class="status-card-body">
+        <p>Категория: <strong>A</strong></p>
+        <p class="status-step status-step--wait">Этап: ожидает подтверждения оплаты</p>
+      </div>
+    </div>
+
+    <!-- 7 -->
+    <div class="status-card">
+      <div class="status-card-header">
+        <span>Заявление</span>
+        <span class="status-card-number">№ 2025-00130</span>
+      </div>
+      <div class="status-card-body">
+        <p>Категория: <strong>В (авто)</strong></p>
+        <p class="status-step status-step--ready">Этап: удостоверение готово к выдаче</p>
+      </div>
+    </div>
+
+    <!-- 8 -->
+    <div class="status-card">
+      <div class="status-card-header">
+        <span>Заявление</span>
+        <span class="status-card-number">№ 2025-00131</span>
+      </div>
+      <div class="status-card-body">
+        <p>Категория: <strong>A</strong></p>
+        <p class="status-step status-step--office">Этап: отправлено в пункт выдачи</p>
+      </div>
+    </div>
+
+    <!-- 9 -->
+    <div class="status-card">
+      <div class="status-card-header">
+        <span>Заявление</span>
+        <span class="status-card-number">№ 2025-00132</span>
+      </div>
+      <div class="status-card-body">
+        <p>Категория: <strong>В (авто)</strong></p>
+        <p class="status-step status-step--check">Этап: уточняются данные заявителя</p>
+      </div>
+    </div>
+
+    <!-- 10 -->
+    <div class="status-card">
+      <div class="status-card-header">
+        <span>Заявление</span>
+        <span class="status-card-number">№ 2025-00133</span>
+      </div>
+      <div class="status-card-body">
+        <p>Категория: <strong>В (авто)</strong></p>
+        <p class="status-step status-step--check">Этап: регистрация в базе данных</p>
+      </div>
+    </div>
+
+  </section>
+
+  <section style="margin-top: 26px;">
+    <p class="muted">
+      Данные приведены как пример отображения. В реальной версии статусы будут подгружаться автоматически.
+    </p>
+  </section>
+{% endblock %}

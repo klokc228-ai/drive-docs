@@ -1,0 +1,387 @@
+{% extends 'main/base.html' %}
+
+{% block title %}DRIVE DOCS — оформление водительских прав в один шаг{% endblock %}
+{% block meta_description %}Оформление и сопровождение получения водительских прав категорий A, B, C, D и подкатегорий. DRIVE DOCS помогает разобраться с документами, оплатой и отслеживанием статуса прав.{% endblock %}
+{% block meta_keywords %}оформление водительских прав, категории прав, проверка статуса прав, DRIVE DOCS, права категории B, права категории A{% endblock %}
+
+{% block extra_head %}
+<style>
+  /* Общая сетка героя */
+  .hero {
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: minmax(0, 1.3fr) minmax(0, 1.1fr);
+    gap: 26px;
+    align-items: flex-start;
+  }
+
+  @media (max-width: 960px) {
+    .hero {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .hero-title {
+    font-size: 34px;
+    line-height: 1.18;
+    margin-bottom: 12px;
+  }
+
+  .hero-title span {
+    color: #ff6b6b; /* мягкий красный акцент */
+  }
+
+  .hero-sub {
+    font-size: 14px;
+    opacity: 0.88;
+    max-width: 580px;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin: 14px 0 12px;
+    padding: 7px 14px;
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,0.22);
+    background: radial-gradient(circle at 0 0, rgba(255,255,255,0.17), rgba(0,0,0,0.9));
+    font-size: 13px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.8);
+  }
+
+  .hero-badge-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 999px;
+    background: #ff6b6b;
+    box-shadow: 0 0 8px rgba(255,107,107,0.85);
+  }
+
+  .hero-tagline {
+    margin-top: 6px;
+    font-size: 14px;
+    opacity: 0.9;
+    max-width: 620px;
+  }
+
+  .hero-actions {
+    margin-top: 18px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .hero-chip {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 14px;
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,0.32);
+    font-size: 13px;
+    background: linear-gradient(135deg, rgba(255,255,255,0.04), rgba(0,0,0,0.9));
+    box-shadow: 0 0 22px rgba(0,0,0,0.9);
+  }
+
+  .hero-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,0.5);
+    background: radial-gradient(circle at 0 0, rgba(255,255,255,0.25), rgba(0,0,0,0.95));
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 0 26px rgba(255,255,255,0.25);
+    color: #111;
+  }
+
+  .hero-btn:hover {
+    filter: brightness(1.03);
+    transform: translateY(-1px);
+  }
+
+  /* Блок выбора категории */
+
+  .hero-panel {
+    border-radius: 22px;
+    padding: 18px 20px;
+    border: 1px solid rgba(255,255,255,0.2);
+    background:
+      radial-gradient(circle at 0 0, rgba(255,255,255,0.14), transparent 55%),
+      linear-gradient(135deg, rgba(10,10,10,0.9), rgba(0,0,0,0.98));
+    box-shadow: 0 26px 60px rgba(0,0,0,0.9);
+    font-size: 13px;
+  }
+
+  .hero-panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 14px;
+  }
+
+  .hero-panel-title {
+    font-size: 16px;
+    font-weight: 600;
+  }
+
+  .hero-panel-link {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    opacity: 0.8;
+  }
+
+  .hero-panel-text {
+    font-size: 13px;
+    opacity: 0.88;
+    margin-bottom: 14px;
+  }
+
+  .hero-panel-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+  }
+
+  .hero-panel-card {
+    border-radius: 18px;
+    padding: 12px 14px;
+    border: 1px solid rgba(255,255,255,0.22);
+    background: linear-gradient(135deg, rgba(255,255,255,0.04), rgba(0,0,0,0.95));
+    box-shadow: 0 0 24px rgba(0,0,0,0.9);
+  }
+
+  .hero-panel-card-title {
+    font-size: 11px;
+    text-transform: uppercase;
+    opacity: 0.9;
+  }
+
+  .hero-panel-card-name {
+    font-size: 13px;
+    font-weight: 600;
+    margin: 4px 0;
+  }
+
+  .hero-panel-card-desc {
+    font-size: 12px;
+    opacity: 0.85;
+  }
+
+  .hero-panel-card--main {
+    border-color: rgba(255,107,107,0.7);
+    box-shadow: 0 0 32px rgba(255,107,107,0.35);
+  }
+
+  /* Сетка всех категорий */
+
+  .categories-grid {
+    margin-top: 18px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 8px;
+  }
+
+  .category-chip {
+    border-radius: 999px;
+    padding: 7px 12px;
+    border: 1px solid rgba(255,255,255,0.22);
+    font-size: 11px;
+    display: flex;
+    justify-content: space-between;
+    gap: 6px;
+    background: linear-gradient(135deg, rgba(255,255,255,0.03), rgba(0,0,0,0.96));
+    opacity: 0.9;
+  }
+
+  .category-chip span:first-child {
+    font-weight: 600;
+  }
+
+  .category-chip span:last-child {
+    opacity: 0.8;
+  }
+
+  /* Блок процесса */
+
+  .process-section {
+    margin-top: 40px;
+  }
+
+  .process-title {
+    font-size: 20px;
+    margin-bottom: 16px;
+  }
+
+  .process-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 14px;
+  }
+
+  .process-card {
+    border-radius: 18px;
+    padding: 16px 18px;
+    border: 1px solid rgba(255,255,255,0.18);
+    background: linear-gradient(135deg, rgba(255,255,255,0.04), rgba(0,0,0,0.95));
+    box-shadow: 0 20px 50px rgba(0,0,0,0.85);
+    font-size: 13px;
+  }
+
+  .process-step-num {
+    width: 22px;
+    height: 22px;
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    background: radial-gradient(circle at 0 0, rgba(255,255,255,0.2), rgba(0,0,0,0.95));
+    box-shadow: 0 0 18px rgba(255,255,255,0.3);
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+
+  <!-- HERO -->
+  <section class="hero">
+    <!-- Левая часть -->
+    <div>
+      <h1 class="hero-title">
+        Оформление водительских прав <span>в один шаг</span>
+      </h1>
+
+      <div class="hero-badge">
+        <div class="hero-badge-dot"></div>
+        <div>
+          Сервис по сопровождению оформления водительских прав — без лишней бюрократии и с понятными шагами.
+        </div>
+      </div>
+
+      <p class="hero-tagline">
+        На этом сайте вы можете ознакомиться с нашей компанией и приобрести наши услуги получения
+        водительского удостоверения для категорий A, B, C и других категорий.
+      </p>
+
+      <div class="hero-actions">
+        <div class="hero-chip">
+          Готовые права в среднем до 14&nbsp;рабочих дней*
+        </div>
+
+        <a href="{% url 'orders' %}" class="hero-btn">
+          Проверить статус прав
+        </a>
+      </div>
+
+      <p style="margin-top: 10px; font-size: 11px; opacity: 0.65;">
+        *Срок зависит от загруженности госорганов и региона оформления.
+      </p>
+    </div>
+
+    <!-- Правая панель выбора категорий -->
+    <div class="hero-panel">
+      <div class="hero-panel-header">
+        <div class="hero-panel-title">Выбор категории прав</div>
+        <div class="hero-panel-link">личный кабинет</div>
+      </div>
+
+      <p class="hero-panel-text">
+        Для заказа наших услуг свяжитесь с менеджером или официальным ботом в Telegram.
+        Ниже указаны основные категории водительских удостоверений.
+      </p>
+
+      <div class="hero-panel-cards">
+        <div class="hero-panel-card hero-panel-card--main">
+          <div class="hero-panel-card-title">Категория B</div>
+          <div class="hero-panel-card-name">Права на легковой автомобиль</div>
+          <div class="hero-panel-card-desc">
+            Управление легковыми транспортными средствами до 3500 кг и с количеством мест до 8, не считая водителя.
+          </div>
+        </div>
+
+        <div class="hero-panel-card">
+          <div class="hero-panel-card-title">Категория A</div>
+          <div class="hero-panel-card-name">Права на мотоцикл</div>
+          <div class="hero-panel-card-desc">
+            Управление мотоциклами и иными двухколёсными механическими транспортными средствами.
+          </div>
+        </div>
+      </div>
+
+      <!-- Все категории прав -->
+      <div class="categories-grid">
+        <div class="category-chip">
+          <span>A1</span><span>лёгкие мотоциклы</span>
+        </div>
+        <div class="category-chip">
+          <span>B1</span><span>трёх- и четырёхколёсные ТС</span>
+        </div>
+        <div class="category-chip">
+          <span>C</span><span>грузовые авто &gt; 3500 кг</span>
+        </div>
+        <div class="category-chip">
+          <span>C1</span><span>грузовые до 7500 кг</span>
+        </div>
+        <div class="category-chip">
+          <span>D</span><span>автобусы &gt; 8 мест</span>
+        </div>
+        <div class="category-chip">
+          <span>D1</span><span>малые автобусы</span>
+        </div>
+        <div class="category-chip">
+          <span>BE</span><span>B с прицепом</span>
+        </div>
+        <div class="category-chip">
+          <span>CE</span><span>C с прицепом</span>
+        </div>
+        <div class="category-chip">
+          <span>DE</span><span>D с прицепом</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ПРОЦЕСС ОПЛАТЫ И ПОЛУЧЕНИЯ ПРАВ -->
+  <section class="process-section">
+    <h2 class="process-title">Как выглядит процесс оплаты и получения прав</h2>
+
+    <div class="process-grid">
+      <div class="process-card">
+        <div class="process-step-num">1</div>
+        <p>
+          Каждому клиенту закрепляется личный менеджер, который ведёт процесс до получения водительских прав на руки.
+        </p>
+      </div>
+
+      <div class="process-card">
+        <div class="process-step-num">2</div>
+        <p>
+          Как только права зарегистрированы, вас уведомляют, и вы можете проверить регистрацию на официальных сервисах.
+        </p>
+      </div>
+
+      <div class="process-card">
+        <div class="process-step-num">3</div>
+        <p>
+          Все персональные данные защищены на каждом этапе оформления и взаимодействия с сервисом.
+        </p>
+      </div>
+
+      <div class="process-card">
+        <div class="process-step-num">4</div>
+        <p>
+          Готовое водительское удостоверение выдаётся лично в руках в крупных городах или доставляется курьером в регионы.
+        </p>
+      </div>
+    </div>
+  </section>
+
+{% endblock %}
