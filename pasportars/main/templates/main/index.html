@@ -89,26 +89,30 @@
   padding: 10px 20px;
   border-radius: 999px;
 
-  /* убираем градиент */
-  background-color: #ffffff;        /* светлая однотонная кнопка */
+  /* нежно-красный фон */
+  background-color: rgba(255, 90, 90, 0.12);
 
-  color: #111 !important;           /* тёмный текст */
+  color: #111 !important;
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
-  border: 1px solid rgba(255,255,255,0.5);
 
+  border: 1px solid rgba(255, 130, 130, 0.35);
+
+  /* мягкая подсветка */
   box-shadow:
-    0 0 14px rgba(255,255,255,0.25),
-    0 0 26px rgba(0,0,0,0.8);
+    0 0 12px rgba(255, 120, 120, 0.25),
+    0 4px 12px rgba(0,0,0,0.35);
 
   transition: all 0.2s ease;
 }
 
 .hero-btn:hover {
-  filter: brightness(1.05);
+  background-color: rgba(255, 90, 90, 0.18);
   transform: translateY(-1px);
+  filter: brightness(1.04);
 }
+
 
 
   /* Блок выбора категории */
