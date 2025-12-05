@@ -82,26 +82,34 @@
     background: linear-gradient(135deg, rgba(255,255,255,0.04), rgba(0,0,0,0.9));
     box-shadow: 0 0 22px rgba(0,0,0,0.9);
   }
+.hero-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  border-radius: 999px;
 
-  .hero-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 10px 20px;
-    border-radius: 999px;
-    border: 1px solid rgba(255,255,255,0.5);
-    background: radial-gradient(circle at 0 0, rgba(255,255,255,0.25), rgba(0,0,0,0.95));
-    font-size: 14px;
-    font-weight: 600;
-    cursor: pointer;
-    box-shadow: 0 0 26px rgba(255,255,255,0.25);
-    color: #111;
-  }
+  /* убираем градиент */
+  background-color: #ffffff;        /* светлая однотонная кнопка */
 
-  .hero-btn:hover {
-    filter: brightness(1.03);
-    transform: translateY(-1px);
-  }
+  color: #111 !important;           /* тёмный текст */
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1px solid rgba(255,255,255,0.5);
+
+  box-shadow:
+    0 0 14px rgba(255,255,255,0.25),
+    0 0 26px rgba(0,0,0,0.8);
+
+  transition: all 0.2s ease;
+}
+
+.hero-btn:hover {
+  filter: brightness(1.05);
+  transform: translateY(-1px);
+}
+
 
   /* Блок выбора категории */
 
